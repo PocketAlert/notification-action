@@ -1,0 +1,30 @@
+name: 'Pocket Alert Push Notification'
+description: 'Send push notifications to Android and iOS mobile devices using Pocket Alert from GitHub Actions'
+author: 'Pocket Alert Team'
+branding:
+  icon: 'bell'
+  color: 'purple'
+inputs:
+  token:
+    description: 'Pocket Alert API token for authentication'
+    required: true
+  title:
+    description: 'Notification title'
+    required: true
+  message:
+    description: 'Notification message content'
+    required: true
+  application_id:
+    description: 'Pocket Alert application ID (optional)'
+    required: false
+  device_id:
+    description: 'Pocket Alert device ID (optional, sends to all devices if not provided)'
+    required: false
+outputs:
+  response:
+    description: 'API response from Pocket Alert'
+  success:
+    description: 'Whether the notification was sent successfully'
+runs:
+  using: 'node20'
+  main: 'index.js'
