@@ -39,7 +39,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Send Pocket Alert Notification
-        uses: PocketAlert/notification-action@1.0.0
+        uses: PocketAlert/notification-action@v1.0.0
         with:
           token: ${{ secrets.POCKET_ALERT_TOKEN }}
           title: "Build Completed"
@@ -64,7 +64,7 @@ jobs:
           echo "Deployment completed"
       
       - name: Notify Deployment Success
-        uses: PocketAlert/notification-action@1.0.0
+        uses: PocketAlert/notification-action@v1.0.0
         with:
           token: ${{ secrets.POCKET_ALERT_TOKEN }}
           title: "🚀 Deployment Successful"
@@ -74,7 +74,7 @@ jobs:
       
       - name: Notify Deployment Failure
         if: failure()
-        uses: PocketAlert/notification-action@1.0.0
+        uses: PocketAlert/notification-action@v1.0.0
         with:
           token: ${{ secrets.POCKET_ALERT_TOKEN }}
           title: "❌ Deployment Failed"
@@ -151,7 +151,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Send Notification
-        uses: PocketAlert/notification-action@1.0.0
+        uses: PocketAlert/notification-action@v1.0.0
         with:
           token: ${{ secrets.POCKET_ALERT_TOKEN }}
           title: "Repository Update"
@@ -178,7 +178,7 @@ jobs:
       
       - name: Notify Test Results
         if: always()
-        uses: PocketAlert/notification-action@1.0.0
+        uses: PocketAlert/notification-action@v1.0.0
         with:
           token: ${{ secrets.POCKET_ALERT_TOKEN }}
           title: "Test Results"
@@ -193,7 +193,7 @@ jobs:
         run: echo "Deploying..."
       
       - name: Notify Deployment
-        uses: PocketAlert/notification-action@1.0.0
+        uses: PocketAlert/notification-action@v1.0.0
         with:
           token: ${{ secrets.POCKET_ALERT_TOKEN }}
           title: "🚀 Production Deploy"
@@ -223,7 +223,7 @@ jobs:
       
       - name: Notify Health Status
         if: steps.health.outputs.status == 'unhealthy'
-        uses: PocketAlert/notification-action@1.0.0
+        uses: PocketAlert/notification-action@v1.0.0
         with:
           token: ${{ secrets.POCKET_ALERT_TOKEN }}
           title: "⚠️ Health Check Failed"
@@ -243,7 +243,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Notify Release
-        uses: PocketAlert/notification-action@1.0.0
+        uses: PocketAlert/notification-action@v1.0.0
         with:
           token: ${{ secrets.POCKET_ALERT_TOKEN }}
           title: "🎉 New Release: ${{ github.event.release.tag_name }}"
@@ -258,7 +258,7 @@ jobs:
 ```yaml
 - name: Send Notification
   id: notify
-  uses: PocketAlert/notification-action@1.0.0
+  uses: PocketAlert/notification-action@v1.0.0
   with:
     token: ${{ secrets.POCKET_ALERT_TOKEN }}
     title: "Test Notification"
@@ -300,7 +300,7 @@ Enable debug logging by adding this to your workflow:
 
 ```yaml
 - name: Send Notification
-  uses: PocketAlert/notification-action@1.0.0
+  uses: PocketAlert/notification-action@v1.0.0
   with:
     token: ${{ secrets.POCKET_ALERT_TOKEN }}
     title: "Debug Test"
